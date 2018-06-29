@@ -10,44 +10,41 @@ function escapeRegex(text) {
   return text.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, '\\$&');
 }
 
-const jsbook = {
-  rating: { max: 10, numRaters: 87, average: '9.5', min: 0 },
-  isbn13: '9787121317989',
-  pubdate: '2017-7-1',
-  author: [ '【美】Nicholas C. Zakas' ],
-  image: 'https://img1.doubanio.com/view/subject/m/public/s29478358.jpg',
-  publisher: '电子工业出版社',
-  id: '27072230',
-  translator: [ '刘振涛' ],
-  images:{
-    small: 'https://img1.doubanio.com/view/subject/s/public/s29478358.jpg',
-    large: 'https://img1.doubanio.com/view/subject/l/public/s29478358.jpg',
-    medium: 'https://img1.doubanio.com/view/subject/m/public/s29478358.jpg'
-  },
-  title: '深入理解ES6',
-  pages: ''
-};
+// const jsbook = {
+//   rating: { max: 10, numRaters: 87, average: '9.5', min: 0 },
+//   isbn13: '9787121317989',
+//   pubdate: '2017-7-1',
+//   author: [ '【美】Nicholas C. Zakas' ],
+//   image: 'https://img1.doubanio.com/view/subject/m/public/s29478358.jpg',
+//   publisher: '电子工业出版社',
+//   id: '27072230',
+//   translator: [ '刘振涛' ],
+//   images:{
+//     small: 'https://img1.doubanio.com/view/subject/s/public/s29478358.jpg',
+//     large: 'https://img1.doubanio.com/view/subject/l/public/s29478358.jpg',
+//     medium: 'https://img1.doubanio.com/view/subject/m/public/s29478358.jpg'
+//   },
+//   title: '深入理解ES6',
+//   pages: ''
+// };
 
 async function queryBookByISBN() {
   const isbn = this.params.isbn;
   log(`recieve request, isbn: ${isbn}`);
-
-
-
-  this.body = jsbook;
-  // let url = isbnApi.replace(/:isbn/, isbn) + '?fields=' + fields;
-  // await axios.get(url)
-  //   .then(res => {
-  //     this.body = res.data;
-  //   })
-  //   .catch(err => {
-  //     let message = err.message;
-  //     log(`fetch book info failed, isbn: ${isbn},message: ${err.message}`, true);
-  //     if ((err.status + '').startsWith('4')) {
-  //       message = '豆瓣 api 请求超限，下个整点后才能用';
-  //     }
-  //     throw new Error({ status: err.status, message });
-  //   });
+  // this.body = jsbook;
+  let url = isbnApi.replace(/:isbn/, isbn) + '?fields=' + fields;
+  await axios.get(url)
+    .then(res => {
+      this.body = res.data;
+    })
+    .catch(err => {
+      let message = err.message;
+      log(`fetch book info failed, isbn: ${isbn},message: ${err.message}`, true);
+      if ((err.status + '').startsWith('4')) {
+        message = '豆瓣 api 请求超限，下个整点后才能用';
+      }
+      throw new Error({ status: err.status, message });
+    });
 }
 
 async function query(){

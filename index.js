@@ -7,11 +7,13 @@ const options = {
   cert: fs.readFileSync('./ssl/selfsigned/server.crt')
 };
 
-app.listen(3001);
-
-https.createServer(options, app.callback()).listen(3000, () => {
-  console.log('server started');
+app.listen(3001, () => {
+  console.log('http server started');
 });
+
+// https.createServer(options, app.callback()).listen(3000, () => {
+//   console.log('https server started');
+// });
 
 process.on('uncaughtException', (err) => {
   console.log('uncaughtException found:');

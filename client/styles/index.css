@@ -1,0 +1,44 @@
+@import './normalize.css';
+@import './iconfont.css';
+
+html{
+  font-size: 10px;
+  -webkit-tap-highlight-color: transparent;
+  user-select: none;
+}
+
+html,body{
+  margin: 0;
+  padding: 0;
+  background-color: #fff;
+  height: 100%;
+  -webkit-overflow-scrolling : touch;
+}
+
+.layout{
+}
+
+.center{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hide{
+  display: none;
+}
+
+.double-line {
+  overflow: hidden;
+  white-space: inherit;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  display: -webkit-box;
+  word-break: break-all;
+}
+.single-line {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}

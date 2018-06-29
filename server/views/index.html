@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+  <title>Bookshelf</title>
+
+  <meta name="format-detection" content="telephone=no">
+  <meta name="apple-mobile-web-app-title" content="小窝书架">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+  <meta name="referrer" content="never">
+
+  <link rel="icon" href="/favicon.png">
+  <!-- 坑，iOS 11+ 下自签名的 https 证书无法显示出 touch icon -->
+  <!-- 即使我把自签名的证书导入到手机中，并且在 设置-通用-关于本机-信任证书设置 中设置为信任也没有用 -->
+  <!-- issue: https://forums.developer.apple.com/thread/92304 -->
+  <!-- 又一个坑 getUserMedia 只能在 safari 里用，不支持 a webpage that has been "added to the home screen". -->
+  <!-- https://stackoverflow.com/questions/46276130/ios11-getusermedia-with-apple-web-app-not-working -->
+  <link rel="apple-touch-icon" href="favicon.png">
+  <link rel="apple-touch-startup-image" href="/img/startup.png">
+  <style type="text/css">
+    .loading{
+
+    }
+  </style>
+  <link rel="stylesheet" type="text/css" href="<%= appcss %>">
+</head>
+<body>
+  <div id="app">
+    <div class="loading"></div>
+  </div>
+  <script type="text/javascript" src="<%= vendorjs %>" defer></script>
+  <script type="text/javascript" src="<%= appjs %>" defer ></script>
+</body>
+</html>

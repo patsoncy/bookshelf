@@ -1,11 +1,11 @@
-const fs = require('fs');
+// const fs = require('fs');
 const app = require('./server/app');
-const https = require('https');
+// const https = require('https');
 
-const options = {
-  key: fs.readFileSync('./ssl/selfsigned/server.key'),
-  cert: fs.readFileSync('./ssl/selfsigned/server.crt')
-};
+// const options = {
+//   key: fs.readFileSync('./ssl/selfsigned/server.key'),
+//   cert: fs.readFileSync('./ssl/selfsigned/server.crt')
+// };
 
 app.listen(3001, () => {
   console.log('http server started');

@@ -46,17 +46,6 @@ app.use(router({
   controllers: config.path.controllers
 }));
 
-
-app.use(async ctx => {
-  ctx.type = 'text/html; charset=utf-8';
-  let body = _.template(template)({
-    appjs: hashjson[ 'appjs' ],
-    vendorjs: hashjson[ 'vendorjs' ],
-    appcss: hashjson[ 'appcss' ],
-  });
-  ctx.body = body;
-});
-
 app.use(async ctx => {
   ctx.type = 'text/html; charset=utf-8';
   let body = _.template(template)({

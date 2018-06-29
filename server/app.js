@@ -63,6 +63,7 @@ app.use(async ctx => {
     appjs: hashjson[ 'appjs' ],
     vendorjs: hashjson[ 'vendorjs' ],
     appcss: hashjson[ 'appcss' ],
+    vendorcss: hashjson[ 'vendorcss' ],
   });
   ctx.body = body;
 });

@@ -31,7 +31,7 @@ export default class Scan {
       }
     }, err => {
       if (err) {
-        cb('Scanner init failed');
+        cb('Scanner init failed', true);
         return;
       }
       this.onDetectedHandler = detectedCb(cb);

@@ -27,10 +27,13 @@ export default {
     showScan(val/*, oldVal */) {
       if(val) {
         this.isbn = '等待扫描结果...';
-        this.scanner = new Scanner(this.$refs.scanner, isbn => {
+        this.scanner = new Scanner(this.$refs.scanner, (isbn, failed = false) => {
           this.isbn = isbn;
           this.scanner.off();
-          this.recieveISBN(isbn);
+          // 未获取摄像头权限 failed == true
+          if (!failed) {
+            this.recieveISBN(isbn);
+          }
         });
       } else {
         setTimeout(() => this.scanner.stop(), 1000);

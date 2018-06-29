@@ -1,4 +1,4 @@
-import Quagga from 'Quagga';
+import Quagga from 'quagga';
 
 function detectedCb(cb) {
   return function (data) {

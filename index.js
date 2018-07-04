@@ -1,19 +1,24 @@
-// const fs = require('fs');
+const fs = require('fs');
+const https = require('https');
 const app = require('./server/app');
-// const https = require('https');
+const config = require('kelp-config');
 
-// const options = {
-//   key: fs.readFileSync('./ssl/selfsigned/server.key'),
-//   cert: fs.readFileSync('./ssl/selfsigned/server.crt')
-// };
+const options = {
+  key: fs.readFileSync('./ssl/selfsigned/server.key'),
+  cert: fs.readFileSync('./ssl/selfsigned/server.crt')
+};
 
-app.listen(3001, () => {
-  console.log('http server started');
-});
+if(process.env.NODE_ENV === 'development') {
+  https.createServer(options, app.callback()).listen(config.serve.port, () => {
+    console.log('https server started');
+  });
+}
 
-// https.createServer(options, app.callback()).listen(3000, () => {
-//   console.log('https server started');
-// });
+if(process.env.NODE_ENV !== 'development') {
+  app.listen(config.serve.port, () => {
+    console.log('http server started');
+  });
+}
 
 process.on('uncaughtException', (err) => {
   console.log('uncaughtException found:');

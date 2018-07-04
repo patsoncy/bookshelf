@@ -1,20 +1,20 @@
 <template>
   <div>
-    <div class="thumbnail" v-show="!listType">
+    <div class="thumbnail" v-if="!listType">
       <div
         class="book"
         v-for="book in books"
         :key="book.id"
         @click.passive="clickBook(book)"
       >
-        <img :src="book.image" />
+        <lazy-img :link="book.image" />
         <div class="mask center">
           <h2 class="single-line">{{ book.title }}</h2>
           <p class="single-line">{{ book.author.join(',') }} | <i>{{ book.rating.average }}</i></p>
         </div>
       </div>
     </div>
-    <div class="list" v-show="listType">
+    <div class="list" v-if="listType">
       <ul>
         <li
           class="book"
@@ -127,6 +127,7 @@ export default {
 
     .book{
       width: 50%;
+      min-height: 200px;
       position: relative;
 
       img{

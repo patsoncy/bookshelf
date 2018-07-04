@@ -94,6 +94,7 @@ export default {
       overflow: hidden;
       position: relative;
       width: 100%;
+      max-height: 100%;
       background-color: #ccc;
 
       .book-cover-l {

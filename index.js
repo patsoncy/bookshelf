@@ -3,12 +3,11 @@ const https = require('https');
 const app = require('./server/app');
 const config = require('kelp-config');
 
-const options = {
-  key: fs.readFileSync('./ssl/selfsigned/server.key'),
-  cert: fs.readFileSync('./ssl/selfsigned/server.crt')
-};
-
 if(process.env.NODE_ENV === 'development') {
+  const options = {
+    key: fs.readFileSync('./ssl/selfsigned/server.key'),
+    cert: fs.readFileSync('./ssl/selfsigned/server.crt')
+  };
   https.createServer(options, app.callback()).listen(config.serve.port, () => {
     console.log('https server started');
   });

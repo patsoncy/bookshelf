@@ -80,7 +80,7 @@ export default {
 };
 </script>
 
-<style>
+<style lang="less">
   .book-box{
     position: fixed;
     top: 0;

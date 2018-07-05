@@ -26,7 +26,7 @@
     "build:pro": "rm -rf ./dist && mkdir dist && cp -r ./static/* ./dist && webpack --config webpack.config.prod.js",
     "static": "rm -rf ./dist/* && cp -r ./static/* ./dist",
     "dev": "npm run static && NODE_ENV=development webpack -w",
-    "start": "npm run static && NODE_ENV=development nodemon --watch server --watch config index.js",
+    "start": "npm run static && NODE_ENV=development nodemon --inspect --watch server --watch config index.js",
     "pro": "NODE_ENV=production nodemon index.js",
     "webpack-dev": "webpack-dev-server --open"
   },

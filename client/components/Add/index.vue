@@ -104,7 +104,7 @@ export default {
 };
 </script>
 
-<style>
+<style lang="less">
   .add-book.mask{
     position: fixed;
     left: 0;

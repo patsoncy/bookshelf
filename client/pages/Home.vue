@@ -47,12 +47,10 @@
 <script>
 import { debounce } from 'lodash';
 import Add from '../components/Add';
-import SearchBar from '../components/SearchBar';
 import Book from '../components/Book';
 export default {
   components: {
     Add,
-    SearchBar,
     Book
   },
   data() {
@@ -119,7 +117,7 @@ export default {
 };
 </script>
 
-<style>
+<style lang="less">
   .thumbnail{
     overflow: hidden;
     display: flex;

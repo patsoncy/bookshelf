@@ -52,7 +52,7 @@ export default {
 };
 </script>
 
-<style>
+<style lang="less">
   .scan-box{
     height: 100%;
     display: flex;

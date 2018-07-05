@@ -22,7 +22,7 @@ export default {
 };
 </script>
 
-<style scoped>
+<style lang="less" scoped>
   .operation{
     width: 60px;
     height: 60px;

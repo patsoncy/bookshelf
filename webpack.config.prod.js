@@ -58,7 +58,7 @@ module.exports = {
   devtool: 'source-map',
   resolve: {
     alias: {
-      vue: 'vue/dist/vue.js'
+      vue: 'vue/dist/vue.min.js'
     },
     extensions: ['.js', '.json', '.vue'],
     modules: [

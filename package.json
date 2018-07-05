@@ -22,12 +22,11 @@
   "author": "patsoncy",
   "license": "MIT",
   "scripts": {
-    "build": "rm -rf ./dist/* && cp -r ./static/* ./dist && webpack",
-    "build:pro": "rm -rf ./dist && mkdir dist && cp -r ./static/* ./dist && webpack --config webpack.config.prod.js",
     "static": "rm -rf ./dist/* && cp -r ./static/* ./dist",
-    "dev": "npm run static && NODE_ENV=development webpack -w",
+    "build": "npm run static && webpack",
+    "build:pro": "npm run static && webpack --config webpack.config.prod.js",
     "start": "npm run static && NODE_ENV=development nodemon --inspect --watch server --watch config index.js",
-    "pro": "NODE_ENV=production nodemon index.js",
+    "pro": "pm2 start --env production",
     "webpack-dev": "webpack-dev-server --open"
   },
   "devDependencies": {
@@ -43,6 +42,7 @@
     "mini-css-extract-plugin": "^0.4.0",
     "nodemon": "^1.17.5",
     "optimize-css-assets-webpack-plugin": "^4.0.2",
+    "pm2": "^3.0.0",
     "uglifyjs-webpack-plugin": "^1.2.5",
     "vue-loader": "^15.2.4",
     "vue-style-loader": "^4.1.0",
